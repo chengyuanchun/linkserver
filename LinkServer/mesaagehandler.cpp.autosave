@@ -1,0 +1,39 @@
+#include "mesaagehandler.h"
+
+MesaageHandler::MesaageHandler(QObject *parent) : QObject(parent)
+{
+
+}
+
+Producer::Producer(QObject *parent) : QThread(parent)
+{
+    
+}
+
+void Producer::run()
+{
+    while (true)
+    {
+        g_mutex.lock();
+        if (g_queue.size() >= g_maxQueueSize)
+            g_queueNotFull.wait(&g_mutex);
+        
+        QString message = g_queue.front();
+        g_queue.po
+        
+        
+        
+        
+        
+    }
+}
+
+Consumer::Consumer(QObject *parent) : QThread(parent)
+{
+    
+}
+
+void Consumer::run()
+{
+    
+}
